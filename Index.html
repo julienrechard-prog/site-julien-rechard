@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julien Rechard - Psychologue en Ligne | Téléconsultation</title>
+    <meta name="description" content="Séances de psychologie en ligne sécurisées avec Julien Rechard, Docteur en psychologie. Un espace d'écoute bienveillant et professionnel, où que vous soyez.">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C4A43;
+            --accent: #D4A373;
+            --bg-light: #F9F8F6;
+            --text-dark: #2B2D42;
+            --white: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        header { background: var(--white); padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 600; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
+        nav a { margin-left: 2rem; text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: var(--primary); }
+        .btn { background-color: var(--primary); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 30px; text-decoration: none; font-weight: 500; transition: background 0.3s; }
+        .btn:hover { background-color: #1e332e; }
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 5% 5%; max-width: 1200px; margin: 0 auto; gap: 4rem; }
+        .hero-content { flex: 1; }
+        .hero-content h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: 1.5rem; line-height: 1.2; }
+        .hero-content p { font-size: 1.1rem; margin-bottom: 2rem; color: #555; }
+        .hero-image { flex: 1; text-align: center; }
+        .hero-image .placeholder-card { background: #E5E9E7; height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 500; }
+        .section-features { background: var(--white); padding: 5rem 5%; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .feature-card { background: var(--bg-light); padding: 2.5rem; border-radius: 15px; border: 1px solid #eaeaea; }
+        .feature-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
+        footer { background: var(--primary); color: var(--white); text-align: center; padding: 3rem 5%; font-size: 0.9rem; }
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-content h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Julien Rechard</a>
+        <nav>
+            <a href="#apropos">Mon Approche</a>
+            <a href="#teleconsultation">Téléconsultation</a>
+            <a href="#contact" class="btn">Prendre Rendez-vous</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Un accompagnement psychologique sur-mesure, accessible en ligne.</h1>
+            <p>Docteur en psychologie, je vous propose un espace sécurisé, confidentiel et bienveillant pour traverser vos difficultés et retrouver un équilibre de vie, où que vous soyez.</p>
+            <a href="#contact" class="btn">Réserver un premier échange</a>
+        </div>
+        <div class="hero-image">
+            <div class="placeholder-card">Photo Professionnelle - Julien Rechard</div>
+        </div>
+    </section>
+
+    <section class="section-features" id="teleconsultation">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>💬 Téléconsultation Sécurisée</h3>
+                <p>Des séances en visio adaptées à votre emploi du temps, sans contrainte géographique, depuis le confort de votre espace.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🧠 Approche Scientifique & Humaine</h3>
+                <p>Une pratique ancrée dans des méthodes validées, enrichie par des années d'expérience clinique et d'écoute active.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🤝 Un Cadre Sécurisant</h3>
+                <p>Un espace de parole sans jugement, confidentiel, rythmé selon vos besoins et votre progression.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Julien Rechard - Psychologue en Ligne. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
