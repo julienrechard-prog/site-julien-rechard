@@ -1,86 +1,1263 @@
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julien Rechard - Psychologue en Ligne | Téléconsultation</title>
-    <meta name="description" content="Séances de psychologie en ligne sécurisées avec Julien Rechard, Docteur en psychologie. Un espace d'écoute bienveillant et professionnel, où que vous soyez.">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2C4A43;
-            --accent: #D4A373;
-            --bg-light: #F9F8F6;
-            --text-dark: #2B2D42;
-            --white: #FFFFFF;
+    <title>Cabinet Sommeil & Sérénité - TCC de l'Insomnie (CBT-I)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+   
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        night: {
+                            950: '#070A12',
+                            900: '#0B132B',
+                            800: '#1C2541',
+                            700: '#2A365C',
+                            600: '#3A4B7C',
+                        },
+                        dream: {
+                            50: '#F4F7FC',
+                            100: '#E6ECF8',
+                            200: '#CBD7F1',
+                            300: '#A1B7E3',
+                            500: '#5B84CD',
+                        },
+                        gold: {
+                            400: '#F3C663',
+                            500: '#E5B23D',
+                            600: '#C79323',
+                        },
+                        softbg: '#FAFCFF',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
-        header { background: var(--white); padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 100; }
-        .logo { font-weight: 600; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
-        nav a { margin-left: 2rem; text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
-        nav a:hover { color: var(--primary); }
-        .btn { background-color: var(--primary); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 30px; text-decoration: none; font-weight: 500; transition: background 0.3s; }
-        .btn:hover { background-color: #1e332e; }
-        .hero { display: flex; align-items: center; justify-content: space-between; padding: 5% 5%; max-width: 1200px; margin: 0 auto; gap: 4rem; }
-        .hero-content { flex: 1; }
-        .hero-content h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: 1.5rem; line-height: 1.2; }
-        .hero-content p { font-size: 1.1rem; margin-bottom: 2rem; color: #555; }
-        .hero-image { flex: 1; text-align: center; }
-        .hero-image .placeholder-card { background: #E5E9E7; height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 500; }
-        .section-features { background: var(--white); padding: 5rem 5%; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .feature-card { background: var(--bg-light); padding: 2.5rem; border-radius: 15px; border: 1px solid #eaeaea; }
-        .feature-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
-        footer { background: var(--primary); color: var(--white); text-align: center; padding: 3rem 5%; font-size: 0.9rem; }
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; }
-            .hero-content h1 { font-size: 2.2rem; }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAFCFF;
+            color: #1C2541;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .glass-dark {
+            background: rgba(11, 19, 43, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(58, 75, 124, 0.3);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0B132B 0%, #1C2541 60%, #2A365C 100%);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3C663 0%, #E5B23D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-button {
+            background: linear-gradient(135deg, #F3C663 0%, #E5B23D 100%);
+            transition: all 0.3s ease;
+        }
+
+        .gold-button:hover {
+            background: linear-gradient(135deg, #E5B23D 0%, #C79323 100%);
+            box-shadow: 0 4px 20px rgba(229, 178, 61, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F7FC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A1B7E3;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5B84CD;
         }
     </style>
 </head>
-<body>
+<body class="antialiased selection:bg-gold-400 selection:text-night-900">
 
-    <header>
-        <a href="#" class="logo">Julien Rechard</a>
-        <nav>
-            <a href="#apropos">Mon Approche</a>
-            <a href="#teleconsultation">Téléconsultation</a>
-            <a href="#contact" class="btn">Prendre Rendez-vous</a>
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-night-900 flex items-center justify-center text-gold-400 shadow-md group-hover:scale-105 transition-transform">
+                    <i data-lucide="moon" class="w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif-title font-bold text-lg text-night-900 leading-tight">Sommeil & Sérénité</span>
+                    <span class="text-xs font-semibold tracking-wider text-night-600 uppercase">TCC-I 100% en Téléconsultation</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-night-800">
+                <a href="#accueil" class="hover:text-gold-600 transition-colors">Accueil</a>
+                <a href="#a-propos" class="hover:text-gold-600 transition-colors">À propos</a>
+                <a href="#tcci" class="hover:text-gold-600 transition-colors">La TCC-I</a>
+                <a href="#en-ligne" class="hover:text-gold-600 transition-colors">Pourquoi en ligne ?</a>
+                <a href="#test" class="hover:text-gold-600 transition-colors flex items-center gap-1.5">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-500"></span>
+                    </span>
+                    Test Sommeil
+                </a>
+                <a href="#deroulement" class="hover:text-gold-600 transition-colors">Accompagnement</a>
+                <a href="#faq" class="hover:text-gold-600 transition-colors">FAQ</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="#rdv" class="gold-button text-night-950 font-bold px-5 py-2.5 rounded-full text-sm shadow-sm flex items-center gap-2">
+                    <i data-lucide="video" class="w-4 h-4"></i>
+                    Réserver ma téléconsultation
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-night-800 hover:bg-dream-100 transition-colors" aria-label="Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </nav>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#accueil" class="mobile-link block py-2 text-night-800 font-medium">Accueil</a>
+            <a href="#a-propos" class="mobile-link block py-2 text-night-800 font-medium">À propos</a>
+            <a href="#tcci" class="mobile-link block py-2 text-night-800 font-medium">La TCC-I</a>
+            <a href="#en-ligne" class="mobile-link block py-2 text-night-800 font-medium">Pourquoi en ligne ?</a>
+            <a href="#test" class="mobile-link block py-2 text-gold-600 font-semibold">Test d'évaluation du sommeil</a>
+            <a href="#deroulement" class="mobile-link block py-2 text-night-800 font-medium">Accompagnement</a>
+            <a href="#faq" class="mobile-link block py-2 text-night-800 font-medium">FAQ</a>
+            <a href="#rdv" class="mobile-link block w-full text-center gold-button text-night-950 font-bold py-3 rounded-xl mt-4">
+                Prendre RDV en visio
+            </a>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Un accompagnement psychologique sur-mesure, accessible en ligne.</h1>
-            <p>Docteur en psychologie, je vous propose un espace sécurisé, confidentiel et bienveillant pour traverser vos difficultés et retrouver un équilibre de vie, où que vous soyez.</p>
-            <a href="#contact" class="btn">Réserver un premier échange</a>
-        </div>
-        <div class="hero-image">
-            <div class="placeholder-card">Photo Professionnelle - Julien Rechard</div>
-        </div>
-    </section>
+    <main class="mt-20">
+        <!-- HERO SECTION -->
+        <section id="accueil" class="relative hero-gradient text-white py-20 lg:py-32 overflow-hidden">
+            <!-- Background Decorative Elements -->
+            <div class="absolute top-1/4 left-10 w-96 h-96 bg-dream-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-gold-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
 
-    <section class="section-features" id="teleconsultation">
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>💬 Téléconsultation Sécurisée</h3>
-                <p>Des séances en visio adaptées à votre emploi du temps, sans contrainte géographique, depuis le confort de votre espace.</p>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                   
+                    <!-- Left Column Text -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-night-800/80 border border-gold-400/30 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+                            <i data-lucide="video" class="w-3.5 h-3.5"></i>
+                            Pratique 100% en ligne • Partout en France & Francophonie
+                        </div>
+
+                        <h1 class="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                            Retrouvez un sommeil <br class="hidden sm:inline"/>
+                            <span class="gold-gradient-text">naturel et réparateur</span> <br />
+                            depuis chez vous.
+                        </h1>
+
+                        <p class="text-dream-100 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                            La **TCC-I (Thérapie Cognitivo-Comportementale de l'Insomnie)** dispensée à 100% en téléconsultation. Même efficacité qu'en cabinet, sans temps de trajet, avec un accompagnement sur-mesure dans votre environnement familier.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                            <a href="#rdv" class="gold-button text-night-950 font-bold px-8 py-4 rounded-xl shadow-lg flex items-center justify-center gap-3 group">
+                                <i data-lucide="calendar" class="w-5 h-5"></i>
+                                <span>Prendre RDV en visio</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="#test" class="px-8 py-4 rounded-xl font-semibold bg-night-800/60 hover:bg-night-800 text-white border border-dream-300/20 hover:border-dream-300/40 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="clipboard-list" class="w-5 h-5 text-gold-400"></i>
+                                Faire le test d'insomnie (2 min)
+                            </a>
+                        </div>
+
+                        <!-- Highlights Bar -->
+                        <div class="pt-8 grid grid-cols-3 gap-4 border-t border-night-700/50 mt-8 text-center lg:text-left">
+                            <div>
+                                <div class="text-2xl font-bold text-white">80%+</div>
+                                <div class="text-xs text-dream-300">D'amélioration clinique</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-white">4 à 8</div>
+                                <div class="text-xs text-dream-300">Séances en moyenne</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-white">100%</div>
+                                <div class="text-xs text-dream-300">Sans accoutumance</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column Card/Image -->
+                    <div class="lg:col-span-5">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="glass-dark rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+                                <div class="flex items-center gap-4 mb-6 pb-6 border-b border-night-700">
+                                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=250" alt="Julien Rechard - Praticien TCC Sommeil" class="w-16 h-16 rounded-full object-cover border-2 border-gold-400">
+                                    <div>
+                                        <h3 class="text-white font-bold text-lg">Julien Rechard</h3>
+                                        <p class="text-gold-400 text-xs font-semibold">Psychologue & Thérapeute TCC-I</p>
+                                        <p class="text-dream-300 text-xs mt-1">Spécialiste des troubles du sommeil</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-dream-100">
+                                    <div class="flex items-start gap-3">
+                                        <div class="p-2 rounded-lg bg-night-800 text-gold-400 mt-0.5">
+                                            <i data-lucide="check-circle2" class="w-4 h-4"></i>
+                                        </div>
+                                        <p><strong class="text-white">Téléconsultation sécurisée :</strong> Plateforme médicale conforme aux normes de santé et de confidentialité.</p>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <div class="p-2 rounded-lg bg-night-800 text-gold-400 mt-0.5">
+                                            <i data-lucide="check-circle2" class="w-4 h-4"></i>
+                                        </div>
+                                        <p><strong class="text-white">Outils numériques partagés :</strong> Agenda de sommeil digitalisé et synthèses envoyées après chaque séance.</p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 p-4 rounded-xl bg-night-800/50 border border-gold-400/20 flex items-center justify-between">
+                                    <div class="flex items-center gap-2 text-xs text-dream-200">
+                                        <i data-lucide="laptop" class="w-4 h-4 text-gold-400"></i>
+                                         100% à distance • Sans déplacement
+                                    </div>
+                                    <span class="text-xs bg-gold-500/20 text-gold-400 font-bold px-2.5 py-1 rounded-full">Sur RDV</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>🧠 Approche Scientifique & Humaine</h3>
-                <p>Une pratique ancrée dans des méthodes validées, enrichie par des années d'expérience clinique et d'écoute active.</p>
+        </section>
+
+        <!-- WHY ONLINE SECTION -->
+        <section id="en-ligne" class="py-16 bg-dream-50 border-b border-dream-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                    <div class="inline-flex items-center gap-2 text-gold-600 font-semibold text-xs uppercase tracking-wider">
+                        <i data-lucide="wifi" class="w-4 h-4"></i>
+                        Les Atouts du 100% en ligne
+                    </div>
+                    <h2 class="font-serif-title text-3xl font-bold text-night-900">
+                        Pourquoi la TCC-I est idéale à distance ?
+                    </h2>
+                    <p class="text-gray-600 text-sm">
+                        La recherche internationale a prouvé que la TCC-I en téléconsultation présente une efficacité clinique identique au présentiel, avec des bénéfices immédiats pour votre quotidien.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-dream-100 shadow-sm flex items-start gap-4">
+                        <div class="p-3 bg-night-900 text-gold-400 rounded-xl shrink-0">
+                            <i data-lucide="home" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Directement depuis votre environnement</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Nous intervenons là où le problème se pose : dans votre cadre de vie et votre chambre à coucher, sans le stress des transports.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-dream-100 shadow-sm flex items-start gap-4">
+                        <div class="p-3 bg-night-900 text-gold-400 rounded-xl shrink-0">
+                            <i data-lucide="globe-2" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Accessible où que vous soyez</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Partout en France, dans les déserts médicaux ou depuis l'étranger (expatriés), bénéficiez d'un expert certifié en TCC-I.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-dream-100 shadow-sm flex items-start gap-4">
+                        <div class="p-3 bg-night-900 text-gold-400 rounded-xl shrink-0">
+                            <i data-lucide="calendar-check" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Flexibilité & Simplicité</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Créneaux horaires adaptés et lien vidéo sécurisé envoyé en un clic, accessible sans installation de logiciel lourd.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>🤝 Un Cadre Sécurisant</h3>
-                <p>Un espace de parole sans jugement, confidentiel, rythmé selon vos besoins et votre progression.</p>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="a-propos" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                   
+                    <div class="lg:col-span-6 relative">
+                        <div class="relative rounded-3xl overflow-hidden shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800" alt="Consultation TCC Insomnie" class="w-full h-auto object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl hidden sm:block max-w-xs shadow-lg border border-dream-100">
+                            <div class="flex items-center gap-3">
+                                <div class="p-3 bg-gold-100 text-gold-600 rounded-xl">
+                                    <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-night-900 text-sm">Écoute & Empathie</div>
+                                    <div class="text-xs text-gray-500">Un espace bienveillant et sans jugement.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-gold-600 font-semibold text-xs uppercase tracking-wider">
+                            <i data-lucide="user-check" class="w-4 h-4"></i>
+                            Votre praticien
+                        </div>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-night-900 leading-tight">
+                            Comprendre vos nuits pour transformer vos jours.
+                        </h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            L'insomnie n'est pas une fatalité ni un manque de volonté. C'est un cercle vicieux dans lequel le cerveau associe le lit à l'éveil, au stress et à la frustration.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Pratiquant **exclusivement en téléconsultation**, je vous accompagne depuis le confort de votre domicile grâce à la **Thérapie Cognitivo-Comportementale de l'Insomnie (TCC-I)**. Nous appliquons les changements là où vous dormez vraiment, pour des résultats immédiats et concrets.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            <div class="p-4 rounded-xl bg-dream-50 border border-dream-100">
+                                <i data-lucide="award" class="w-6 h-6 text-gold-600 mb-2"></i>
+                                <h4 class="font-bold text-night-900 text-sm">Formation Spécialisée</h4>
+                                <p class="text-xs text-gray-500">Thérapies Cognitives et Comportementales appliquée au sommeil.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-dream-50 border border-dream-100">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-gold-600 mb-2"></i>
+                                <h4 class="font-bold text-night-900 text-sm">Téléconsultation Sécurisée</h4>
+                                <p class="text-xs text-gray-500">Données de santé protégées et lien de consultation chiffré.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT IS TCC-I SECTION -->
+        <section id="tcci" class="py-20 bg-dream-50/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-flex items-center gap-2 text-gold-600 font-semibold text-xs uppercase tracking-wider">
+                        <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+                        La Science du Sommeil
+                    </div>
+                    <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-night-900">
+                        Qu'est-ce que la TCC de l'Insomnie ?
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed">
+                        Reconnue comme le **traitement de référence de première intention** par la *Haute Autorité de Santé (HAS)* et l'*European Sleep Research Society*, la TCC-I rééduque votre système de sommeil en 4 piliers fondamentaux.
+                    </p>
+                </div>
+
+                <!-- 4 Pillars Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                   
+                    <!-- Pillar 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-dream-100 relative group">
+                        <div class="w-12 h-12 rounded-xl bg-night-900 text-gold-400 flex items-center justify-center mb-6 font-bold text-xl group-hover:scale-110 transition-transform">
+                            1
+                        </div>
+                        <h3 class="font-bold text-lg text-night-900 mb-3">Contrôle des Stimulus</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Réassocier le lit avec un sommeil rapide et apaisé plutôt qu'avec la frustration, la rumination ou l'éveil.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-dream-100 relative group">
+                        <div class="w-12 h-12 rounded-xl bg-night-900 text-gold-400 flex items-center justify-center mb-6 font-bold text-xl group-hover:scale-110 transition-transform">
+                            2
+                        </div>
+                        <h3 class="font-bold text-lg text-night-900 mb-3">Restriction du Sommeil</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Consolider le sommeil en ajustant la fenêtre de temps passée au lit pour restaurer une forte pression de sommeil.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-dream-100 relative group">
+                        <div class="w-12 h-12 rounded-xl bg-night-900 text-gold-400 flex items-center justify-center mb-6 font-bold text-xl group-hover:scale-110 transition-transform">
+                            3
+                        </div>
+                        <h3 class="font-bold text-lg text-night-900 mb-3">Restructuration Cognitive</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Identifier et apaiser les croyances anxieuses ou irréalistes concernant le sommeil ("Si je ne dors pas 8h, ma journée est gâchée").
+                        </p>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-dream-100 relative group">
+                        <div class="w-12 h-12 rounded-xl bg-night-900 text-gold-400 flex items-center justify-center mb-6 font-bold text-xl group-hover:scale-110 transition-transform">
+                            4
+                        </div>
+                        <h3 class="font-bold text-lg text-night-900 mb-3">Hygiène & Relaxation</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Techniques de cohérence cardiaque, gestion du stress et optimisation de l'environnement nocturne.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SYMPTOMS / FOR WHOM SECTION -->
+        <section id="symptomes" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-flex items-center gap-2 text-gold-600 font-semibold text-xs uppercase tracking-wider">
+                        <i data-lucide="help-circle" class="w-4 h-4"></i>
+                        Indications
+                    </div>
+                    <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-night-900">
+                        Pour qui est adaptée la TCC-I ?
+                    </h2>
+                    <p class="text-gray-600 text-base">
+                        Vous vous reconnaissez dans l'une de ces situations ? La TCC-I apporte des réponses adaptées.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                   
+                    <!-- Symptom 1 -->
+                    <div class="p-6 rounded-2xl border border-dream-100 hover:border-gold-400/50 hover:shadow-lg transition-all bg-white flex items-start gap-4">
+                        <div class="p-3 rounded-xl bg-dream-100 text-night-900 shrink-0">
+                            <i data-lucide="clock" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Difficultés d'endormissement</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Vous tournez dans votre lit pendant plus de 30 minutes avant de réussir à trouver le sommeil.</p>
+                        </div>
+                    </div>
+
+                    <!-- Symptom 2 -->
+                    <div class="p-6 rounded-2xl border border-dream-100 hover:border-gold-400/50 hover:shadow-lg transition-all bg-white flex items-start gap-4">
+                        <div class="p-3 rounded-xl bg-dream-100 text-night-900 shrink-0">
+                            <i data-lucide="eye-off" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Réveils nocturnes fréquents</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Réveils répétés à 3h ou 4h du matin avec impossibilité ou grande difficulté à vous rendormir.</p>
+                        </div>
+                    </div>
+
+                    <!-- Symptom 3 -->
+                    <div class="p-6 rounded-2xl border border-dream-100 hover:border-gold-400/50 hover:shadow-lg transition-all bg-white flex items-start gap-4">
+                        <div class="p-3 rounded-xl bg-dream-100 text-night-900 shrink-0">
+                            <i data-lucide="zap-off" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Fatigue & Somnolence diurne</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Impression de ne pas avoir récupéré, baisse de concentration, d'énergie et de mémoire la journée.</p>
+                        </div>
+                    </div>
+
+                    <!-- Symptom 4 -->
+                    <div class="p-6 rounded-2xl border border-dream-100 hover:border-gold-400/50 hover:shadow-lg transition-all bg-white flex items-start gap-4">
+                        <div class="p-3 rounded-xl bg-dream-100 text-night-900 shrink-0">
+                            <i data-lucide="brain" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Anxiété de la nuit</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Appréhension du coucher dès le début de la soirée, peur d'être fatigué le lendemain.</p>
+                        </div>
+                    </div>
+
+                    <!-- Symptom 5 -->
+                    <div class="p-6 rounded-2xl border border-dream-100 hover:border-gold-400/50 hover:shadow-lg transition-all bg-white flex items-start gap-4">
+                        <div class="p-3 rounded-xl bg-dream-100 text-night-900 shrink-0">
+                            <i data-lucide="pill" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Dépendance aux somnifères</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Désir de réduire ou stopper progressivement les hypnotiques/anxiolytiques en accord médical.</p>
+                        </div>
+                    </div>
+
+                    <!-- Symptom 6 -->
+                    <div class="p-6 rounded-2xl border border-dream-100 hover:border-gold-400/50 hover:shadow-lg transition-all bg-white flex items-start gap-4">
+                        <div class="p-3 rounded-xl bg-dream-100 text-night-900 shrink-0">
+                            <i data-lucide="calendar-x" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-night-900 text-base mb-1">Insomnie installée (+3 mois)</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">L'insomnie est devenue chronique et affecte votre qualité de vie personnelle et professionnelle.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INTERACTIVE TEST SECTION (ISI) -->
+        <section id="test" class="py-20 hero-gradient text-white relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+               
+                <div class="text-center mb-10 space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+                        <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+                        Auto-évaluation scientifique
+                    </div>
+                    <h2 class="font-serif-title text-3xl sm:text-4xl font-bold">
+                        Évaluez la sévérité de votre insomnie
+                    </h2>
+                    <p class="text-dream-200 text-sm max-w-xl mx-auto">
+                        Test rapide basé sur l'Index de Sévérité de l'Insomnie (ISI). Calculez votre score en 5 questions simples.
+                    </p>
+                </div>
+
+                <!-- Interactive Test Container -->
+                <div class="glass-dark rounded-3xl p-6 sm:p-10 shadow-2xl border border-night-600" id="quiz-container">
+                   
+                    <!-- Progress Bar -->
+                    <div class="mb-8">
+                        <div class="flex justify-between text-xs text-dream-300 mb-2">
+                            <span id="quiz-progress-text">Question 1 sur 5</span>
+                            <span id="quiz-progress-percent">20%</span>
+                        </div>
+                        <div class="w-full h-2 bg-night-800 rounded-full overflow-hidden">
+                            <div id="quiz-progress-bar" class="h-full bg-gold-400 transition-all duration-300 w-1/5"></div>
+                        </div>
+                    </div>
+
+                    <!-- Questions Flow -->
+                    <form id="quiz-form">
+                       
+                        <!-- Question 1 -->
+                        <div class="quiz-step block" data-step="1">
+                            <h3 class="text-lg font-bold text-white mb-6">1. Avez-vous des difficultés à vous endormir ?</h3>
+                            <div class="space-y-3">
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q1" value="0" class="hidden" required>
+                                    <span class="text-sm font-medium">Aucune difficulté</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q1" value="1" class="hidden">
+                                    <span class="text-sm font-medium">Légère difficulté</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q1" value="2" class="hidden">
+                                    <span class="text-sm font-medium">Moyenne</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q1" value="3" class="hidden">
+                                    <span class="text-sm font-medium">Sévère</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q1" value="4" class="hidden">
+                                    <span class="text-sm font-medium">Très sévère</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="quiz-step hidden" data-step="2">
+                            <h3 class="text-lg font-bold text-white mb-6">2. À quel point êtes-vous gêné(e) par des réveils pendant la nuit ?</h3>
+                            <div class="space-y-3">
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q2" value="0" class="hidden" required>
+                                    <span class="text-sm font-medium">Pas du tout gêné(e)</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q2" value="1" class="hidden">
+                                    <span class="text-sm font-medium">Un peu gêné(e)</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q2" value="2" class="hidden">
+                                    <span class="text-sm font-medium">Moyennement</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q2" value="3" class="hidden">
+                                    <span class="text-sm font-medium">Beaucoup</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q2" value="4" class="hidden">
+                                    <span class="text-sm font-medium">Enormément</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="quiz-step hidden" data-step="3">
+                            <h3 class="text-lg font-bold text-white mb-6">3. Vous réveillez-vous trop tôt le matin sans pouvoir vous rendormir ?</h3>
+                            <div class="space-y-3">
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q3" value="0" class="hidden" required>
+                                    <span class="text-sm font-medium">Jamais</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q3" value="1" class="hidden">
+                                    <span class="text-sm font-medium">Rarement</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q3" value="2" class="hidden">
+                                    <span class="text-sm font-medium">Modérément</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q3" value="3" class="hidden">
+                                    <span class="text-sm font-medium">Souvent</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q3" value="4" class="hidden">
+                                    <span class="text-sm font-medium">Très souvent</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="quiz-step hidden" data-step="4">
+                            <h3 class="text-lg font-bold text-white mb-6">4. À quel point vos problèmes de sommeil perturbent-ils votre fonctionnement quotidien (fatigue, humeur, travail) ?</h3>
+                            <div class="space-y-3">
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q4" value="0" class="hidden" required>
+                                    <span class="text-sm font-medium">Pas du tout</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q4" value="1" class="hidden">
+                                    <span class="text-sm font-medium">Un peu</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q4" value="2" class="hidden">
+                                    <span class="text-sm font-medium">Moyennement</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q4" value="3" class="hidden">
+                                    <span class="text-sm font-medium">Beaucoup</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q4" value="4" class="hidden">
+                                    <span class="text-sm font-medium">Extrêmement</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="quiz-step hidden" data-step="5">
+                            <h3 class="text-lg font-bold text-white mb-6">5. À quel point êtes-vous inquiet(e) ou préoccupé(e) par vos problèmes actuels de sommeil ?</h3>
+                            <div class="space-y-3">
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q5" value="0" class="hidden" required>
+                                    <span class="text-sm font-medium">Pas du tout inquiet(e)</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q5" value="1" class="hidden">
+                                    <span class="text-sm font-medium">Un peu inquiet(e)</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q5" value="2" class="hidden">
+                                    <span class="text-sm font-medium">Moyennement</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q5" value="3" class="hidden">
+                                    <span class="text-sm font-medium">Très inquiet(e)</span>
+                                </label>
+                                <label class="quiz-option flex items-center p-4 rounded-xl bg-night-800/80 hover:bg-night-700 cursor-pointer border border-night-700 transition-all">
+                                    <input type="radio" name="q5" value="4" class="hidden">
+                                    <span class="text-sm font-medium">Extrêmement inquiet(e)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <!-- Inline Feedback Message Box -->
+                    <div id="quiz-alert-box" class="hidden mt-4 p-3 bg-red-500/20 border border-red-500/40 text-red-200 text-xs rounded-xl text-center">
+                        Veuillez sélectionner une réponse pour continuer.
+                    </div>
+
+                    <!-- Quiz Navigation Buttons -->
+                    <div class="flex justify-between items-center mt-8 pt-6 border-t border-night-700" id="quiz-nav">
+                        <button id="prev-btn" class="px-5 py-2.5 rounded-xl border border-night-600 text-dream-200 text-sm hover:bg-night-800 disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+                            Précédent
+                        </button>
+                        <button id="next-btn" class="gold-button text-night-950 font-bold px-6 py-2.5 rounded-xl text-sm flex items-center gap-2">
+                            <span>Suivant</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Test Result Card (Hidden by default) -->
+                    <div id="quiz-result" class="hidden text-center space-y-6 py-4">
+                        <div class="inline-flex p-4 rounded-full bg-gold-400/20 text-gold-400 mb-2">
+                            <i data-lucide="award" class="w-12 h-12"></i>
+                        </div>
+                       
+                        <h3 class="text-2xl font-bold text-white">Résultat de votre évaluation</h3>
+                       
+                        <div class="p-6 rounded-2xl bg-night-800/90 border border-night-700 max-w-lg mx-auto">
+                            <div class="text-sm text-dream-300">Votre Score ISI :</div>
+                            <div class="text-5xl font-extrabold gold-gradient-text my-2" id="score-display">0 / 20</div>
+                            <div class="text-base font-bold text-white mt-3" id="score-category">Chargement...</div>
+                            <p class="text-xs text-dream-200 mt-2 leading-relaxed" id="score-recommendation"></p>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                            <a href="#rdv" class="gold-button text-night-950 font-bold px-8 py-3.5 rounded-xl text-sm flex items-center justify-center gap-2">
+                                <i data-lucide="video" class="w-4 h-4"></i>
+                                Réserver mon bilan en visio
+                            </a>
+                            <button id="restart-quiz" class="px-6 py-3.5 rounded-xl border border-night-600 text-dream-200 text-sm hover:bg-night-800">
+                                Refaire le test
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROCESS / ACCOMPANIMENT SECTION -->
+        <section id="deroulement" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-flex items-center gap-2 text-gold-600 font-semibold text-xs uppercase tracking-wider">
+                        <i data-lucide="list-ordered" class="w-4 h-4"></i>
+                        Parcours 100% en ligne
+                    </div>
+                    <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-night-900">
+                        Comment se déroule la téléconsultation ?
+                    </h2>
+                    <p class="text-gray-600 text-base">
+                        Une démarche fluide et interactive en 3 étapes clefs, depuis votre salon ou votre bureau.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                   
+                    <!-- Step 1 -->
+                    <div class="p-8 rounded-2xl bg-dream-50/50 border border-dream-100 relative">
+                        <div class="text-xs font-bold uppercase tracking-wider text-gold-600 mb-2">Étape 1</div>
+                        <h3 class="font-bold text-xl text-night-900 mb-3">Bilan en Visio & Agenda Digital</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Première consultation vidéo (1h) pour analyser votre historique de sommeil. Vous remplissez ensuite votre agenda du sommeil en ligne en quelques clics par jour.
+                        </p>
+                        <ul class="space-y-2 text-xs text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-600"></i>
+                                Lien vidéo direct sans téléchargement
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-600"></i>
+                                Accès à l'agenda de sommeil numérique
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="p-8 rounded-2xl bg-dream-50/50 border border-dream-100 relative">
+                        <div class="text-xs font-bold uppercase tracking-wider text-gold-600 mb-2">Étape 2</div>
+                        <h3 class="font-bold text-xl text-night-900 mb-3">Séances & Protocoles Actifs</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Séances de suivi en visio (45 min) tous les 7 à 15 jours. Nous analysons vos données de sommeil et ajustons votre temps passé au lit et vos exercices cognitifs.
+                        </p>
+                        <ul class="space-y-2 text-xs text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-600"></i>
+                                Synthèse et fiches pratiques par email
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-600"></i>
+                                Exercices audio guidés de relaxation
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="p-8 rounded-2xl bg-dream-50/50 border border-dream-100 relative">
+                        <div class="text-xs font-bold uppercase tracking-wider text-gold-600 mb-2">Étape 3</div>
+                        <h3 class="font-bold text-xl text-night-900 mb-3">Consolidation & Autonomie</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Bilan final, anticipation des rechutes face aux périodes de stress et conservation de votre boîte à outils personnalisée pour toute votre vie.
+                        </p>
+                        <ul class="space-y-2 text-xs text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-600"></i>
+                                Plan de maintien personnalisé
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-gold-600"></i>
+                                Sommeil naturel consolidé
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- APPOINTMENT & RATES SECTION -->
+        <section id="rdv" class="py-20 bg-dream-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                   
+                    <!-- Rates & Information -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-gold-600 font-semibold text-xs uppercase tracking-wider">
+                            <i data-lucide="tag" class="w-4 h-4"></i>
+                            Tarifs & Modalités
+                        </div>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-night-900">
+                            Tarifs des téléconsultations
+                        </h2>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            L'activité est exercée 100% à distance. Vous recevez un lien vidéo sécurisé dès la confirmation de votre réservation.
+                        </p>
+
+                        <!-- Pricing Card 1 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-dream-100 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-bold text-night-900 text-base">Première Téléconsultation (Bilan)</h3>
+                                <p class="text-xs text-gray-500 mt-1">Durée : 1h00 - Visio + Agenda numérique</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-night-900">75 €</span>
+                            </div>
+                        </div>
+
+                        <!-- Pricing Card 2 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-dream-100 flex items-center justify-between">
+                            <div>
+                                <h3 class="font-bold text-night-900 text-base">Téléconsultation de Suivi TCC-I</h3>
+                                <p class="text-xs text-gray-500 mt-1">Durée : 45 min - Analyse & Ajustements</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-night-900">65 €</span>
+                            </div>
+                        </div>
+
+                        <!-- Teleconsultation Highlights -->
+                        <div class="p-4 rounded-xl bg-white border border-dream-200 text-xs text-night-800 space-y-2">
+                            <div class="font-bold flex items-center gap-1.5 text-night-900">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-green-600"></i>
+                                Comment vous connecter ?
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">Un simple smartphone, tablette ou ordinateur avec caméra et micro suffit. Aucun compte ou logiciel compliqué à installer.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-gold-400/10 border border-gold-400/30 text-xs text-night-800 space-y-2">
+                            <div class="font-bold flex items-center gap-1.5 text-gold-600">
+                                <i data-lucide="info" class="w-4 h-4"></i>
+                                Facture pour votre Mutuelle
+                            </div>
+                            <p>Une note d'honoraires vous est envoyée par e-mail après chaque consultation pour solliciter la prise en charge de votre mutuelle (forfait psychologie/sommeil).</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Appointment Widget -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-dream-100" id="booking-widget">
+                            <h3 class="font-bold text-xl text-night-900 mb-6 flex items-center gap-2">
+                                <i data-lucide="video" class="w-5 h-5 text-gold-600"></i>
+                                Réserver une téléconsultation
+                            </h3>
+
+                            <!-- Form Steps -->
+                            <form id="booking-form" class="space-y-6">
+                               
+                                <!-- Consultation Type Badge -->
+                                <div class="p-4 rounded-xl bg-dream-50 border border-dream-100 flex items-center gap-3">
+                                    <div class="p-2.5 bg-night-900 text-gold-400 rounded-lg">
+                                        <i data-lucide="monitor" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-xs text-night-900">Format : 100% Téléconsultation Vidéo</div>
+                                        <div class="text-[11px] text-gray-500">Lien sécurisé transmis automatiquement par email</div>
+                                    </div>
+                                </div>
+
+                                <!-- Date & Slot Selector -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Date souhaitée</label>
+                                        <input type="date" id="booking-date" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-gold-500 text-sm text-night-900" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Créneau horaire</label>
+                                        <select id="booking-slot" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-gold-500 text-sm text-night-900" required>
+                                            <option value="">Sélectionner une heure</option>
+                                            <option value="08:30">08:30</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:30">11:30</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:30">15:30</option>
+                                            <option value="17:00">17:00</option>
+                                            <option value="18:30">18:30</option>
+                                            <option value="19:30">19:30</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- User Details -->
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Nom et Prénom</label>
+                                        <input type="text" id="booking-name" placeholder="Ex : Marie Dupont" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-gold-500 text-sm" required>
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">E-mail (pour le lien de connexion)</label>
+                                            <input type="email" id="booking-email" placeholder="votre@email.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-gold-500 text-sm" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Téléphone mobile</label>
+                                            <input type="tel" id="booking-phone" placeholder="06 00 00 00 00" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-gold-500 text-sm" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full gold-button text-night-950 font-bold py-4 rounded-xl text-center shadow-md flex items-center justify-center gap-2">
+                                    <i data-lucide="video" class="w-5 h-5"></i>
+                                    Confirmer ma téléconsultation
+                                </button>
+
+                            </form>
+
+                            <!-- Success Confirmation Message (Hidden by default) -->
+                            <div id="booking-success" class="hidden text-center py-8 space-y-4">
+                                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                                    <i data-lucide="check" class="w-8 h-8"></i>
+                                </div>
+                                <h4 class="font-bold text-2xl text-night-900">Téléconsultation réservée !</h4>
+                                <p class="text-sm text-gray-600 max-w-md mx-auto">
+                                    Merci <span id="confirm-name" class="font-semibold text-night-900"></span>. Un email de confirmation contenant votre **lien de téléconsultation sécurisé** a été envoyé pour le <strong id="confirm-date" class="text-night-900"></strong> à <strong id="confirm-time" class="text-night-900"></strong>.
+                                </p>
+                                <button id="reset-booking" class="text-xs font-bold text-gold-600 hover:underline pt-4 block mx-auto">
+                                    Réserver une autre séance
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS & FAQ SECTION -->
+        <section id="faq" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+               
+                <!-- Testimonials Grid -->
+                <div class="mb-20">
+                    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                        <div class="inline-flex items-center gap-2 text-gold-600 font-semibold text-xs uppercase tracking-wider">
+                            <i data-lucide="star" class="w-4 h-4"></i>
+                            Témoignages
+                        </div>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-night-900">
+                            Ils ont retrouvé un sommeil serein
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                       
+                        <!-- Testimonial 1 -->
+                        <div class="p-6 rounded-2xl bg-dream-50/60 border border-dream-100 space-y-4">
+                            <div class="flex text-gold-500 gap-1">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-700 italic leading-relaxed">
+                                "Après 5 ans de somnifères et de nuits hachées, la TCC-I m'a redonné confiance. En 6 séances, j'ai réappris à dormir sans aucune appréhension."
+                            </p>
+                            <div class="text-xs font-bold text-night-900">
+                                Philippe M. <span class="font-normal text-gray-500">- 48 ans</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="p-6 rounded-2xl bg-dream-50/60 border border-dream-100 space-y-4">
+                            <div class="flex text-gold-500 gap-1">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-700 italic leading-relaxed">
+                                "La restriction de sommeil faisait peur au début, mais les résultats ont été spectaculaires dès la 3ème semaine. Un grand merci pour le suivi."
+                            </p>
+                            <div class="text-xs font-bold text-night-900">
+                                Élodie R. <span class="font-normal text-gray-500">- 35 ans</span>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="p-6 rounded-2xl bg-dream-50/60 border border-dream-100 space-y-4">
+                            <div class="flex text-gold-500 gap-1">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="text-sm text-gray-700 italic leading-relaxed">
+                                "Suivi en téléconsultation très pratique. Les explications scientifiques m'ont permis de stopper la rumination mentale en allant au lit."
+                            </p>
+                            <div class="text-xs font-bold text-night-900">
+                                Marc D. <span class="font-normal text-gray-500">- 52 ans</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Accordion FAQ -->
+                <div class="max-w-3xl mx-auto">
+                    <div class="text-center mb-10">
+                        <h2 class="font-serif-title text-3xl font-bold text-night-900">Questions Fréquentes</h2>
+                    </div>
+
+                    <div class="space-y-4" id="faq-accordion">
+                       
+                        <!-- FAQ Item 1 -->
+                        <div class="border border-dream-100 rounded-2xl overflow-hidden bg-white">
+                            <button class="faq-btn w-full p-5 text-left font-bold text-night-900 flex justify-between items-center hover:bg-dream-50/50 transition-colors">
+                                <span>Combien de séances sont nécessaires en général ?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden p-5 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                                La majorité des patients constatent des améliorations significatives en 4 à 8 séances réparties sur 2 à 3 mois. La TCC-I est une thérapie brève et axée sur des solutions concrètes.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="border border-dream-100 rounded-2xl overflow-hidden bg-white">
+                            <button class="faq-btn w-full p-5 text-left font-bold text-night-900 flex justify-between items-center hover:bg-dream-50/50 transition-colors">
+                                <span>La téléconsultation est-elle aussi efficace qu'en cabinet présentiel ?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden p-5 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                                Absolument. De nombreuses études cliniques (notamment publiées dans <em>Sleep</em> et par l'INSERM) démontrent que la TCC-I à distance présente exactement le même taux de réussite (supérieur à 80%) qu'en cabinet physique. Être chez soi favorise même l'immersion pratique dans l'environnement où se posent les difficultés.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="border border-dream-100 rounded-2xl overflow-hidden bg-white">
+                            <button class="faq-btn w-full p-5 text-left font-bold text-night-900 flex justify-between items-center hover:bg-dream-50/50 transition-colors">
+                                <span>De quel matériel ai-je besoin pour les séances en ligne ?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden p-5 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                                Un ordinateur, une tablette ou un smartphone connecté à Internet suffit amplement. Aucun compte à créer : vous cliquez simplement sur le lien visio sécurisé reçu par e-mail 5 minutes avant le rendez-vous.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="border border-dream-100 rounded-2xl overflow-hidden bg-white">
+                            <button class="faq-btn w-full p-5 text-left font-bold text-night-900 flex justify-between items-center hover:bg-dream-50/50 transition-colors">
+                                <span>Dois-je arrêter mes somnifères avant de commencer ?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden p-5 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                                Non, aucun arrêt préalable n'est requis. Si votre objectif est le sevrage des somnifères, nous planifierons une diminution très progressive en accord avec votre médecin traitant une fois que vos mécanismes naturels de sommeil seront consolidés.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 5 -->
+                        <div class="border border-dream-100 rounded-2xl overflow-hidden bg-white">
+                            <button class="faq-btn w-full p-5 text-left font-bold text-night-900 flex justify-between items-center hover:bg-dream-50/50 transition-colors">
+                                <span>Les séances sont-elles remboursées par ma mutuelle ?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
+                            </button>
+                            <div class="faq-content hidden p-5 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100">
+                                Oui, la plupart des mutuelles santé remboursent un nombre défini de consultations psychologiques par an sous forme de forfait. Une facture avec numéro ADELI / RPPS vous est transmise après chaque téléconsultation.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-night-900 text-white pt-16 pb-12 border-t border-night-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-night-800">
+               
+                <!-- Brand Info -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-night-800 flex items-center justify-center text-gold-400 border border-gold-400/20">
+                            <i data-lucide="moon" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-serif-title font-bold text-xl text-white">Cabinet Sommeil & Sérénité</span>
+                    </div>
+                    <p class="text-xs text-dream-300 leading-relaxed max-w-sm">
+                        Accompagnement 100% en ligne spécialisé en Thérapie Cognitivo-Comportementale de l'Insomnie (TCC-I). Consultations accessibles partout en France et à l'international.
+                    </p>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider">Menu</h4>
+                    <ul class="space-y-2 text-xs text-dream-300">
+                        <li><a href="#accueil" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#en-ligne" class="hover:text-white transition-colors">Pourquoi en ligne</a></li>
+                        <li><a href="#tcci" class="hover:text-white transition-colors">La TCC-I</a></li>
+                        <li><a href="#test" class="hover:text-white transition-colors">Test de sommeil</a></li>
+                        <li><a href="#rdv" class="hover:text-white transition-colors">Prendre RDV</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider">Téléconsultations</h4>
+                    <div class="space-y-2 text-xs text-dream-300">
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="video" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                            100% en ligne via visio sécurisée
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                            Du Lundi au Vendredi : 08h30 - 20h00
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                            contact@sommeil-serenite.fr
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Emergency Notice -->
+                <div class="lg:col-span-3 space-y-3 bg-night-800/50 p-4 rounded-2xl border border-night-700">
+                    <h4 class="text-xs font-bold text-red-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                        Urgence / Crise
+                    </h4>
+                    <p class="text-[11px] text-dream-300 leading-relaxed">
+                        Le service de téléconsultation ne gère pas les urgences psychiatriques immédiates. En cas de détresse sévère, composez le **15 (SAMU)** ou le **3114** (Numéro national de prévention du suicide).
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal Footer -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-dream-300 gap-4">
+                <div>
+                    © 2026 Cabinet Sommeil & Sérénité. Tous droits réservés.
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Mentions Légales</a>
+                    <a href="#" class="hover:text-white transition-colors">Politique de Confidentialité</a>
+                    <a href="#" class="hover:text-white transition-colors">Protection des Données (RGPD)</a>
+                </div>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Julien Rechard - Psychologue en Ligne. Tous droits réservés.</p>
     </footer>
 
-</body>
-</html>
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+           
+            // Set min date for booking to today
+            const today = new Date().toISOString().split('T')[0];
+            const bookingDateInput = document.getElementById('booking-date');
+            if (bookingDateInput) {
+                bookingDateInput.min = today;
+            }
+        });
+
+        // Sticky Header scroll effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md');
+            } else {
+                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+       
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // -------------------------------------------------------------
+        // QUIZ LOGIC (Insomnia Severity Index)
+        // -------------------------------------------------------------
+        let currentStep = 1;
+        const totalSteps = 5;
+        const quizForm = document.getElementById('quiz-form');
+        const quizSteps = document.querySelectorAll('.quiz-step');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('quiz-progress-bar');
+        const progressText = document.getElementById('quiz-progress-text');
+        const progressPercent = document.getElementById('quiz-progress-percent');
+        const quizResult = document.getElementById('quiz-result');
+        const quizNav = document.getElementById('quiz-nav');
+        const quizAlertBox = document.getElementById('quiz-alert-box');
+
+        // Style radio options when selected
+        document.querySelectorAll('.quiz-option input').forEach(input =
